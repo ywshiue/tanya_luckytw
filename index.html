@@ -5,152 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>趙喚好運 · 趙妮綺非官方記錄站</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ── HERO ── */
-    .hero-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 3.2rem 2rem 2.8rem;
-      text-align: center; margin-bottom: 1.6rem;
-      position: relative; overflow: hidden;
-    }
-    /* Top gradient bar */
-    .hero-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--lavender-d), var(--blush), var(--lavender));
-    }
-    /* Sun glow */
-    .hero-card::after {
-      content: '';
-      position: absolute; top: -60px; right: -60px;
-      width: 260px; height: 260px;
-      background: radial-gradient(circle,
-        rgba(245,216,126,0.18) 0%,
-        rgba(232,160,188,0.12) 40%,
-        transparent 70%);
-      pointer-events: none;
-    }
-    .hero-clover {
-      font-size: 1.1rem; letter-spacing: 0.5em;
-      color: var(--clover); margin-bottom: 1rem; opacity: .7;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--lavender-s), var(--blush-s));
-      border: 1px solid var(--border);
-      color: var(--lavender-d);
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
-      padding: 0.2rem 1rem; border-radius: 100px; margin-bottom: 1.3rem;
-    }
-    .hero-name {
-      font-size: clamp(2.4rem, 8vw, 4.5rem); font-weight: 700;
-      letter-spacing: 0.1em; line-height: 1.1; margin-bottom: 0.4rem;
-      background: linear-gradient(135deg, var(--text) 30%, var(--lavender-d) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 0.85rem; font-weight: 500;
-      color: var(--muted); letter-spacing: 0.22em; margin-bottom: 1.8rem;
-    }
-    .hero-rule {
-      display: flex; align-items: center; gap: 0.7rem;
-      justify-content: center; margin-bottom: 1.6rem;
-    }
-    .hero-rule::before, .hero-rule::after {
-      content: ''; flex: 1; max-width: 56px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border));
-    }
-    .hero-rule::after {
-      background: linear-gradient(90deg, var(--border), transparent);
-    }
-    .hero-rule span { font-size: 0.65rem; color: var(--blush); opacity: .8; letter-spacing: 0.3em; }
-    .hero-bio {
-      font-size: 0.85rem; color: var(--dim); line-height: 2.1;
-      max-width: 380px; margin: 0 auto 2rem; font-weight: 400;
-    }
-    .hero-btns { display: flex; justify-content: center; gap: 0.7rem; flex-wrap: wrap; }
-
-    /* ── INTRO ── */
-    .intro-card {
-      background: linear-gradient(135deg, var(--lavender-s) 0%, var(--blush-s) 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem 2rem; text-align: center; margin-bottom: 1.6rem;
-    }
-    .intro-card p { font-size: 0.85rem; color: var(--dim); line-height: 2.2; }
-    .intro-sign { font-size: 0.64rem; color: var(--muted); letter-spacing: 0.18em; margin-top: 0.8rem; }
-
-    /* ── WORKS LIST ── */
-    .works-list, .ads-list { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 1.6rem; }
-
-    /* ── LINK GRID ── */
-    .link-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1rem; margin-bottom: 1.6rem;
-    }
-
-    @media(max-width: 600px) {
-      .hero-card { padding: 2.4rem 1.2rem 2.2rem; }
-      .link-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media(max-width: 400px) {
-      .link-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><span class="clv">☘</span> 趙喚好運</a>
-    <ul class="nav-links">
-      <li><a href="works.html">作品集</a></li>
-      <li><a href="ads.html">廣告演出</a></li>
-      <li><a href="timeline.html">時序年表</a></li>
-      <li><a href="links.html">官方連結</a></li>
-      <li><a href="about.html">關於</a></li>
-    </ul>
+<header>
+  <a href="index.html" class="site-title"><span class="clv">☘</span> 趙喚好運</a>
+  <div class="header-right">
+    <nav>
+      <a href="works.html">作品集</a>
+      <a href="ads.html">廣告演出</a>
+      <a href="timeline.html">時序年表</a>
+      <a href="links.html">官方連結</a>
+      <a href="about.html">關於</a>
+    </nav>
+    <button class="toggle-btn" id="themeToggle" title="切換深色模式" aria-label="切換深色模式"></button>
   </div>
-</nav>
+</header>
 
-<div class="page">
-
-  <!-- HERO -->
-  <div class="hero-card">
-    <div class="hero-clover">☘ &nbsp; ☘ &nbsp; ☘</div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="star-deco">✿ ☘ ✿</div>
     <div class="hero-tag">趙妮綺粉絲記錄站 · 趙喚好運</div>
-    <h1 class="hero-name">趙妮綺</h1>
-    <div class="hero-sub">Tanya Zhao &nbsp;·&nbsp; 여정</div>
-    <div class="hero-rule"><span>✿ ☘ ✿</span></div>
-    <p class="hero-bio">
+    <h1>趙妮綺</h1>
+    <div class="hero-sub-name">Tanya Zhao &nbsp;·&nbsp; 여정</div>
+    <div class="hero-bio-box">
       台灣演員。喜歡透過細膩觀察與真誠的表達，<br>
       詮釋不同的生命樣貌。<br>
       對她而言，表演是一種與人產生連結的方式。
-    </p>
+    </div>
     <div class="hero-btns">
       <a href="works.html" class="btn btn-primary">✦ 探索作品</a>
       <a href="https://www.instagram.com/tanya_o_c/" target="_blank" class="btn btn-ghost">Instagram</a>
       <a href="https://www.tiktok.com/@tanya_o_c" target="_blank" class="btn btn-ghost">TikTok</a>
     </div>
   </div>
+</div>
 
-  <!-- INTRO -->
-  <div class="intro-card">
-    <p>大家好。我是趙喚好運的一員。<br>
-    在那片白色的光裡，默默記錄屬於妮綺的每一個足跡。</p>
-    <div class="intro-sign">☘ &nbsp; 內容僅供記錄，版權屬原著作人所有 &nbsp; ☘</div>
-  </div>
+<!-- INTRO -->
+<div class="intro-card" style="margin:1.6rem auto; max-width:880px; margin-left:auto; margin-right:auto;">
+  <p>大家好。我是趙喚好運的一員。<br>
+  在那片白色的光裡，默默記錄屬於妮綺的每一個足跡。</p>
+  <div class="intro-sign">☘ &nbsp; 內容僅供記錄，版權屬原著作人所有 &nbsp; ☘</div>
+</div>
 
-  <!-- WORKS PREVIEW -->
-  <div class="section-label">
-    <h2>作品集</h2>
-    <span class="lsub">Filmography</span>
-    <a href="works.html" class="more">查看完整清單 →</a>
+<!-- WORKS PREVIEW -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">作品集 <span class="count-tag">2 部</span></div>
+    <a href="works.html" class="view-all-btn">查看完整清單 →</a>
   </div>
   <div class="works-list">
 
@@ -201,14 +106,15 @@
     </div>
 
   </div>
+</div>
 
-  <div class="petal-div">✿ &nbsp; ☘ &nbsp; ✿</div>
+<div class="section-divider"></div>
 
-  <!-- ADS PREVIEW -->
-  <div class="section-label">
-    <h2>廣告演出</h2>
-    <span class="lsub">Commercial Works</span>
-    <a href="ads.html" class="more">查看完整清單 →</a>
+<!-- ADS PREVIEW -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">廣告演出 <span class="count-tag">1 支</span></div>
+    <a href="ads.html" class="view-all-btn">查看完整清單 →</a>
   </div>
   <div class="ads-list">
     <div class="ad-card">
@@ -224,14 +130,15 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="petal-div">✿ &nbsp; ☘ &nbsp; ✿</div>
+<div class="section-divider"></div>
 
-  <!-- TIMELINE PREVIEW -->
-  <div class="section-label">
-    <h2>時序年表</h2>
-    <span class="lsub">Timeline</span>
-    <a href="timeline.html" class="more">查看完整年表 →</a>
+<!-- TIMELINE PREVIEW -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">時序年表</div>
+    <a href="timeline.html" class="view-all-btn">查看完整年表 →</a>
   </div>
   <div class="timeline-card">
     <div class="tl-list">
@@ -261,40 +168,59 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="petal-div">✿ &nbsp; ☘ &nbsp; ✿</div>
+<div class="section-divider"></div>
 
-  <!-- LINKS PREVIEW -->
-  <div class="section-label">
-    <h2>官方連結</h2>
-    <span class="lsub">Official Links</span>
-    <a href="links.html" class="more">查看全部 →</a>
+<!-- LINKS PREVIEW -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">官方連結</div>
+    <a href="links.html" class="view-all-btn">查看全部 →</a>
   </div>
-  <div class="link-grid">
-    <a href="https://www.instagram.com/tanya_o_c/" target="_blank" class="link-card">
+  <div class="link-grid-preview">
+    <a href="https://www.instagram.com/tanya_o_c/" target="_blank" class="link-card-preview">
       <div class="link-icon">📷</div>
-      <div><div class="link-label">Instagram</div><div class="link-sub">@tanya_o_c · 170K+</div></div>
+      <div class="link-main"><div class="link-label">Instagram</div><div class="link-sub">@tanya_o_c · 170K+</div></div>
       <span class="link-arr">↗</span>
     </a>
-    <a href="https://www.tiktok.com/@tanya_o_c" target="_blank" class="link-card">
+    <a href="https://www.tiktok.com/@tanya_o_c" target="_blank" class="link-card-preview">
       <div class="link-icon">▶</div>
-      <div><div class="link-label">TikTok</div><div class="link-sub">@tanya_o_c · 993K+</div></div>
+      <div class="link-main"><div class="link-label">TikTok</div><div class="link-sub">@tanya_o_c · 993K+</div></div>
       <span class="link-arr">↗</span>
     </a>
-    <a href="https://www.youtube.com/@tanyadreamlife" target="_blank" class="link-card">
+    <a href="https://www.youtube.com/@tanyadreamlife" target="_blank" class="link-card-preview">
       <div class="link-icon">🎥</div>
-      <div><div class="link-label">Vlog 頻道</div><div class="link-sub">@tanyadreamlife</div></div>
+      <div class="link-main"><div class="link-label">Vlog 頻道</div><div class="link-sub">@tanyadreamlife</div></div>
       <span class="link-arr">↗</span>
     </a>
   </div>
+</div>
 
-  <footer>
+<footer>
+  <div class="footer-inner">
     <div>趙喚好運 &nbsp;·&nbsp; 趙妮綺非官方記錄站</div>
     <div>內容僅供個人紀錄用，版權屬原著作人所有。</div>
     <div>網站不儲存任何影音、圖片或訪談內容，所有資料皆連結至原始來源。</div>
-    <a href="#" class="back-top">☘ 回到頂端 ↑</a>
-  </footer>
+  </div>
+</footer>
 
-</div>
+<button class="back-top-fixed" id="backTop" title="回到頂端">↑</button>
+
+<script>
+  // Dark mode
+  const btn = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') document.documentElement.setAttribute('data-theme','dark');
+  btn.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  });
+  // Back to top
+  const btt = document.getElementById('backTop');
+  window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 300));
+  btt.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+</script>
 </body>
 </html>

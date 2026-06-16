@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>時序年表 — 趙喚好運</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><span class="clv">☘</span> 趙喚好運</a>
-    <ul class="nav-links">
-      <li><a href="works.html">作品集</a></li>
-      <li><a href="ads.html">廣告演出</a></li>
-      <li><a href="timeline.html" class="active">時序年表</a></li>
-      <li><a href="links.html">官方連結</a></li>
-      <li><a href="about.html">關於</a></li>
-    </ul>
+<header>
+  <a href="index.html" class="site-title"><span class="clv">☘</span> 趙喚好運</a>
+  <div class="header-right">
+    <nav>
+      <a href="works.html">作品集</a>
+      <a href="ads.html">廣告演出</a>
+      <a href="timeline.html" class="active">時序年表</a>
+      <a href="links.html">官方連結</a>
+      <a href="about.html">關於</a>
+    </nav>
+    <button class="toggle-btn" id="themeToggle" title="切換深色模式" aria-label="切換深色模式"></button>
   </div>
-</nav>
-<div class="page">
-  <div class="page-header">
-    <div class="clover-row">☘ &nbsp; ☘ &nbsp; ☘</div>
-    <a href="index.html" class="back-link">← 返回首頁</a>
-    <h1>時序年表</h1>
-    <p>依時間順序，記錄趙妮綺的每一個足跡。</p>
-  </div>
+</header>
 
-  <div class="section-label">
-    <h2>完整年表</h2>
-    <span class="lsub">Full Timeline</span>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <a href="index.html" class="page-hero-back">← 返回首頁</a>
+    <div class="page-hero-title">時序年表</div>
+    <div class="page-hero-sub">Timeline</div>
+    <div class="page-hero-desc">
+      <p>依時間順序，記錄趙妮綺的每一個足跡。</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">完整年表</div>
   </div>
   <div class="timeline-card">
     <div class="tl-list">
@@ -77,13 +81,19 @@
 
     </div>
   </div>
-
-  <footer>
-    <div>趙喚好運 &nbsp;·&nbsp; 趙妮綺非官方記錄站</div>
-    <div>內容僅供個人紀錄用，版權屬原著作人所有。</div>
-    <div>網站不儲存任何影音、圖片或訪談內容，所有資料皆連結至原始來源。</div>
-    <a href="#" class="back-top">☘ 回到頂端 ↑</a>
-  </footer>
 </div>
-</body>
-</html>
+
+<footer><div class="footer-inner">
+  <div>趙喚好運 &nbsp;·&nbsp; 趙妮綺非官方記錄站</div>
+  <div>內容僅供個人紀錄用，版權屬原著作人所有。</div>
+</div></footer>
+<button class="back-top-fixed" id="backTop" title="回到頂端">↑</button>
+<script>
+  const btn=document.getElementById("themeToggle");
+  if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");
+  btn.addEventListener("click",()=>{const d=document.documentElement.getAttribute("data-theme")==="dark";document.documentElement.setAttribute("data-theme",d?"light":"dark");localStorage.setItem("theme",d?"light":"dark");});
+  const btt=document.getElementById("backTop");
+  window.addEventListener("scroll",()=>btt.classList.toggle("visible",window.scrollY>300));
+  btt.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+</script>
+</body></html>
