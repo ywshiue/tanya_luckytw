@@ -7,9 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ── TOKENS ── */
     :root {
-      --white:   #ffffff;
       --bg:      #f7f5fa;
       --card:    #ffffff;
       --border:  #e4dff0;
@@ -25,299 +23,217 @@
       --shadow-h:0 6px 28px rgba(155,143,181,0.18);
       --radius:  14px;
     }
-
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Noto Sans TC', sans-serif;
-      font-weight: 400;
-      line-height: 1.85;
-      min-height: 100vh;
+      background:var(--bg); color:var(--text);
+      font-family:'Noto Sans TC',sans-serif; font-weight:400;
+      line-height:1.85; min-height:100vh;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: sticky; top:0; z-index:100;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      position:sticky; top:0; z-index:100;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
     }
     .nav-inner {
-      max-width: 780px; margin:0 auto;
-      display: flex; align-items:center; justify-content:space-between;
-      padding: 0 1.5rem; height: 54px;
+      max-width:780px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 1.5rem; height:54px;
     }
     .nav-logo {
-      font-weight:700; font-size:0.88rem;
-      letter-spacing:0.15em; color:var(--purple);
-      text-decoration:none; display:flex; align-items:center; gap:0.4rem;
+      font-weight:700; font-size:0.88rem; letter-spacing:0.15em;
+      color:var(--purple); text-decoration:none;
     }
-    .nav-logo .clv { color:var(--clover); }
-    .nav-links { display:flex; gap:1.8rem; list-style:none; }
+    .nav-links { display:flex; gap:1.6rem; list-style:none; }
     .nav-links a {
-      font-size:0.78rem; font-weight:700; letter-spacing:0.1em;
+      font-size:0.78rem; font-weight:700; letter-spacing:0.08em;
       color:var(--dim); text-decoration:none; transition:color .2s;
     }
     .nav-links a:hover { color:var(--purple); }
 
-    /* ── PAGE WRAPPER ── */
+    /* PAGE */
     .page { max-width:780px; margin:0 auto; padding:2rem 1.5rem 4rem; }
 
-    /* ── HERO CARD ── */
+    /* HERO */
     .hero-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 3.2rem 2rem 2.8rem;
-      text-align: center;
-      margin-bottom: 1.8rem;
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:3rem 2rem 2.6rem;
+      text-align:center; margin-bottom:1.6rem;
     }
-    .hero-clover {
-      font-size:1.5rem; letter-spacing:0.5em;
-      color:var(--clover); margin-bottom:1.4rem; opacity:.7;
-    }
+    .hero-clover { font-size:1.3rem; letter-spacing:0.5em; color:var(--clover); margin-bottom:1.2rem; opacity:.65; }
     .hero-tag {
-      display:inline-block;
-      background:var(--purple-s); color:var(--purple);
-      font-size:0.68rem; font-weight:700; letter-spacing:0.2em;
-      padding:0.22rem 0.9rem; border-radius:100px;
-      margin-bottom:1.5rem;
+      display:inline-block; background:var(--purple-s); color:var(--purple);
+      font-size:0.67rem; font-weight:700; letter-spacing:0.2em;
+      padding:0.2rem 0.9rem; border-radius:100px; margin-bottom:1.4rem;
     }
     .hero-name {
-      font-size: clamp(2.6rem,9vw,4.8rem);
-      font-weight:700; letter-spacing:0.12em;
-      color:var(--text); line-height:1.1; margin-bottom:0.5rem;
+      font-size:clamp(2.4rem,8vw,4.5rem); font-weight:700;
+      letter-spacing:0.12em; color:var(--text); line-height:1.1; margin-bottom:0.45rem;
     }
-    .hero-name-sub {
-      font-size:0.88rem; font-weight:500;
-      color:var(--purple-l); letter-spacing:0.2em; margin-bottom:2rem;
+    .hero-sub {
+      font-size:0.86rem; font-weight:500; color:var(--purple-l);
+      letter-spacing:0.2em; margin-bottom:1.8rem;
     }
-    .hero-divider {
+    .hero-rule {
       display:flex; align-items:center; gap:0.7rem;
-      justify-content:center; margin-bottom:1.8rem;
+      justify-content:center; margin-bottom:1.6rem;
     }
-    .hero-divider::before,.hero-divider::after {
-      content:''; flex:1; max-width:60px; height:1px; background:var(--border);
+    .hero-rule::before,.hero-rule::after {
+      content:''; flex:1; max-width:56px; height:1px; background:var(--border);
     }
-    .hero-divider-dot { color:var(--clover); font-size:0.7rem; opacity:.6; letter-spacing:0.3em; }
+    .hero-rule span { color:var(--clover); font-size:0.68rem; opacity:.6; letter-spacing:0.3em; }
     .hero-bio {
-      font-size:0.88rem; font-weight:700; color:var(--dim);
-      line-height:2; max-width:400px; margin:0 auto 2.2rem;
+      font-size:0.86rem; font-weight:400; color:var(--dim);
+      line-height:2; max-width:380px; margin:0 auto 2rem;
     }
-    .hero-btns { display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap; }
+    .hero-btns { display:flex; justify-content:center; gap:0.7rem; flex-wrap:wrap; }
     .btn {
-      display:inline-block; padding:0.55rem 1.5rem;
-      font-size:0.75rem; font-weight:700; letter-spacing:0.12em;
-      border-radius:100px; text-decoration:none; transition:all .22s;
+      display:inline-block; padding:0.5rem 1.4rem;
+      font-size:0.73rem; font-weight:700; letter-spacing:0.1em;
+      border-radius:100px; text-decoration:none; transition:all .2s;
     }
-    .btn-primary {
-      background:var(--purple); color:#fff;
-    }
+    .btn-primary { background:var(--purple); color:#fff; }
     .btn-primary:hover { background:#7c6fa0; }
-    .btn-ghost {
-      background:var(--purple-s); color:var(--purple);
-      border:1px solid var(--border);
-    }
+    .btn-ghost { background:var(--purple-s); color:var(--purple); border:1px solid var(--border); }
     .btn-ghost:hover { background:var(--purple); color:#fff; }
 
-    /* ── SECTION LABEL ── */
-    .section-label {
-      display:flex; align-items:center; gap:0.7rem;
-      margin-bottom:1rem;
+    /* INTRO */
+    .intro-card {
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:2rem 2rem;
+      text-align:center; margin-bottom:1.6rem;
     }
-    .section-label h2 {
-      font-size:0.95rem; font-weight:700; letter-spacing:0.15em; color:var(--text);
-    }
-    .section-label .lsub {
-      font-size:0.72rem; font-weight:400; color:var(--muted); letter-spacing:0.08em;
-    }
-    .section-label .more {
+    .intro-card p { font-size:0.86rem; color:var(--dim); line-height:2.2; }
+    .intro-card .sign { font-size:0.66rem; color:var(--muted); letter-spacing:0.18em; margin-top:0.8rem; }
+
+    /* SECTION */
+    .section-label { display:flex; align-items:center; gap:0.7rem; margin-bottom:0.9rem; }
+    .section-label h2 { font-size:0.93rem; font-weight:700; letter-spacing:0.15em; color:var(--text); }
+    .section-label .lsub { font-size:0.7rem; font-weight:400; color:var(--muted); }
+    .section-label a.more {
       margin-left:auto; font-size:0.72rem; font-weight:700;
-      color:var(--purple); text-decoration:none; letter-spacing:0.05em;
+      color:var(--purple); text-decoration:none;
     }
 
-    /* ── CARD GRID ── */
-    .card-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
-      gap:1rem;
-      margin-bottom:1.8rem;
+    /* CARD GRID — 2 col fixed for works */
+    .card-grid-2 {
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:1rem; margin-bottom:1.6rem;
     }
 
-    /* ── WORK CARD ── */
+    /* WORK CARD */
     .work-card {
       background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:1.5rem;
-      transition: box-shadow .22s, transform .22s;
-      display:flex; flex-direction:column; gap:0.5rem;
+      box-shadow:var(--shadow); padding:1.4rem;
+      display:flex; flex-direction:column; gap:0.45rem;
+      transition:box-shadow .2s, transform .2s;
     }
-    .work-card:hover {
-      box-shadow:var(--shadow-h); transform:translateY(-3px);
-    }
-    .work-card-top {
-      display:flex; align-items:center; justify-content:space-between;
-      margin-bottom:0.2rem;
-    }
+    .work-card:hover { box-shadow:var(--shadow-h); transform:translateY(-2px); }
+    .work-card-top { display:flex; align-items:center; justify-content:space-between; }
     .work-year {
-      font-size:0.62rem; font-weight:700; letter-spacing:0.2em; color:var(--purple);
-      background:var(--purple-s); padding:0.1rem 0.55rem; border-radius:100px;
+      font-size:0.6rem; font-weight:700; letter-spacing:0.2em; color:var(--purple);
+      background:var(--purple-s); padding:0.08rem 0.5rem; border-radius:100px;
     }
-    .badge {
-      font-size:0.58rem; font-weight:700; letter-spacing:0.08em;
-      padding:0.1rem 0.5rem; border-radius:100px;
-    }
+    .badge { font-size:0.58rem; font-weight:700; padding:0.08rem 0.5rem; border-radius:100px; }
     .badge-main { background:var(--clover-s); color:var(--clover); }
     .badge-sub  { background:var(--purple-s); color:var(--purple-l); }
-    .work-title {
-      font-size:0.95rem; font-weight:700; color:var(--text);
-      line-height:1.5;
-    }
-    .work-role {
-      font-size:0.75rem; font-weight:700; color:var(--dim);
-    }
+    .badge-ad   { background:#fff3e0; color:#e08c3a; }
+    .work-title { font-size:0.92rem; font-weight:700; color:var(--text); line-height:1.5; }
+    .work-role  { font-size:0.73rem; font-weight:700; color:var(--dim); }
     .work-role span { color:var(--purple); margin-right:0.25rem; }
-    .work-note {
-      font-size:0.72rem; font-weight:400; color:var(--muted);
-      line-height:1.7; border-top:1px solid var(--border); padding-top:0.6rem;
-      margin-top:0.2rem;
-    }
-
-    /* ── WORK DETAIL ── */
     .work-synopsis {
-      font-size:0.75rem; font-weight:400; color:var(--dim);
-      line-height:1.85; border-top:1px solid var(--border);
-      padding-top:0.7rem; margin-top:0.4rem;
+      font-size:0.72rem; font-weight:400; color:var(--dim); line-height:1.8;
+      border-top:1px solid var(--border); padding-top:0.6rem;
     }
-    .work-meta {
-      display:flex; flex-direction:column; gap:0.25rem;
-      border-top:1px solid var(--border); padding-top:0.7rem; margin-top:0.4rem;
-    }
-    .work-meta-row { display:flex; gap:0.6rem; font-size:0.7rem; }
-    .work-meta-k { font-weight:700; color:var(--muted); width:54px; flex-shrink:0; }
-    .work-meta-v { font-weight:400; color:var(--dim); flex:1; }
-    .work-links {
-      display:flex; gap:0.5rem; flex-wrap:wrap;
-      border-top:1px solid var(--border); padding-top:0.8rem; margin-top:0.4rem;
-    }
+    .work-meta { display:flex; flex-direction:column; gap:0.2rem; border-top:1px solid var(--border); padding-top:0.6rem; }
+    .work-meta-row { display:flex; gap:0.5rem; font-size:0.68rem; }
+    .work-meta-k { font-weight:700; color:var(--muted); width:48px; flex-shrink:0; }
+    .work-meta-v { font-weight:400; color:var(--dim); }
+    .work-links { display:flex; gap:0.45rem; flex-wrap:wrap; border-top:1px solid var(--border); padding-top:0.7rem; }
     .work-link {
-      display:inline-flex; align-items:center; gap:0.35rem;
-      font-size:0.68rem; font-weight:700; letter-spacing:0.05em;
-      padding:0.3rem 0.85rem; border-radius:100px; text-decoration:none;
+      display:inline-flex; align-items:center; gap:0.3rem;
+      font-size:0.66rem; font-weight:700; padding:0.28rem 0.8rem;
+      border-radius:100px; text-decoration:none; transition:all .2s;
       border:1px solid var(--border); color:var(--purple); background:var(--purple-s);
-      transition:all .2s;
     }
     .work-link:hover { background:var(--purple); color:#fff; border-color:var(--purple); }
     .work-link-clover { background:var(--clover-s); color:var(--clover); border-color:transparent; }
     .work-link-clover:hover { background:var(--clover); color:#fff; }
 
-    /* ── INTRO CARD ── */
-    .intro-card {
-      background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:2.4rem 2rem;
-      text-align:center; margin-bottom:1.8rem;
-    }
-    .intro-card p {
-      font-size:0.9rem; font-weight:700; color:var(--dim);
-      line-height:2.2; margin-bottom:0.5rem;
-    }
-    .intro-card .sign {
-      font-size:0.68rem; font-weight:400; color:var(--muted);
-      letter-spacing:0.18em; margin-top:0.8rem;
-    }
-
-    /* ── TIMELINE CARD ── */
+    /* TIMELINE */
     .timeline-card {
       background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:1.8rem 1.6rem;
-      margin-bottom:1.8rem;
+      box-shadow:var(--shadow); padding:1.6rem 1.4rem; margin-bottom:1.6rem;
     }
     .tl-list { display:flex; flex-direction:column; }
-    .tl-row {
-      display:grid; grid-template-columns:56px 18px 1fr;
-      gap:0 1rem; align-items:start;
-    }
-    .tl-yr {
-      font-size:0.62rem; font-weight:700; letter-spacing:0.12em;
-      color:var(--purple); text-align:right; padding-top:0.28rem;
-    }
+    .tl-row { display:grid; grid-template-columns:56px 18px 1fr; gap:0 1rem; align-items:start; }
+    .tl-yr { font-size:0.62rem; font-weight:700; letter-spacing:0.1em; color:var(--purple); text-align:right; padding-top:0.25rem; }
     .tl-spine { display:flex; flex-direction:column; align-items:center; }
-    .tl-dot {
-      width:8px; height:8px; border-radius:50%;
-      background:var(--purple-l); flex-shrink:0; margin-top:0.28rem;
-    }
+    .tl-dot { width:7px; height:7px; border-radius:50%; background:var(--purple-l); flex-shrink:0; margin-top:0.3rem; }
     .tl-line { width:1px; flex:1; min-height:32px; background:var(--border); }
-    .tl-body { padding-bottom:1.6rem; }
-    .tl-title { font-size:0.9rem; font-weight:700; color:var(--text); }
-    .tl-detail { font-size:0.72rem; font-weight:400; color:var(--muted); margin-top:0.1rem; }
+    .tl-body { padding-bottom:1.4rem; }
+    .tl-title { font-size:0.88rem; font-weight:700; color:var(--text); }
+    .tl-detail { font-size:0.7rem; color:var(--muted); margin-top:0.1rem; }
 
-    /* ── LINK CARDS ── */
+    /* LINKS */
     .link-card-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-      gap:1rem; margin-bottom:1.8rem;
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+      gap:0.9rem; margin-bottom:1.6rem;
     }
     .link-card {
       background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:1.3rem 1.4rem;
-      display:flex; align-items:center; gap:1rem;
+      box-shadow:var(--shadow); padding:1.1rem 1.2rem;
+      display:flex; align-items:center; gap:0.9rem;
       text-decoration:none; color:inherit;
-      transition: box-shadow .22s, transform .22s;
+      transition:box-shadow .2s, transform .2s;
     }
     .link-card:hover { box-shadow:var(--shadow-h); transform:translateY(-2px); }
     .link-icon-wrap {
-      width:40px; height:40px; border-radius:10px;
+      width:36px; height:36px; border-radius:9px;
       background:var(--purple-s); display:flex; align-items:center;
-      justify-content:center; font-size:1.1rem; flex-shrink:0;
+      justify-content:center; font-size:1rem; flex-shrink:0;
     }
-    .link-label { font-size:0.82rem; font-weight:700; color:var(--text); }
-    .link-sub { font-size:0.66rem; font-weight:400; color:var(--muted); margin-top:0.1rem; }
-    .link-arr { margin-left:auto; color:var(--muted); font-size:0.8rem; flex-shrink:0; }
+    .link-label { font-size:0.8rem; font-weight:700; color:var(--text); }
+    .link-sub { font-size:0.65rem; color:var(--muted); margin-top:0.1rem; }
+    .link-arr { margin-left:auto; color:var(--muted); font-size:0.75rem; flex-shrink:0; }
 
-    /* ── ABOUT CARD ── */
+    /* ABOUT */
     .about-card {
       background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:1.8rem 1.6rem;
-      margin-bottom:1.8rem;
+      box-shadow:var(--shadow); padding:1.6rem 1.4rem; margin-bottom:1.6rem;
     }
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-    .about-text p { font-size:0.82rem; font-weight:700; color:var(--dim); line-height:2; margin-bottom:0.9rem; }
+    .about-text p { font-size:0.8rem; color:var(--dim); line-height:2; margin-bottom:0.9rem; }
     .info-rows { display:flex; flex-direction:column; }
-    .info-row {
-      display:flex; gap:1rem; padding:0.55rem 0;
-      border-bottom:1px solid var(--border); font-size:0.78rem;
-    }
+    .info-row { display:flex; gap:0.8rem; padding:0.5rem 0; border-bottom:1px solid var(--border); font-size:0.76rem; }
     .info-row:last-child { border-bottom:none; }
-    .info-k { font-weight:400; color:var(--muted); width:72px; flex-shrink:0; }
+    .info-k { font-weight:400; color:var(--muted); width:68px; flex-shrink:0; }
     .info-v { font-weight:700; color:var(--text); }
 
-    /* ── CLOVER DIVIDER ── */
-    .clover-div {
-      text-align:center; font-size:0.75rem;
-      color:var(--clover); letter-spacing:0.5em; opacity:.5;
-      margin:0.4rem 0 1.8rem;
-    }
+    /* CLOVER DIV */
+    .clover-div { text-align:center; font-size:0.72rem; color:var(--clover); letter-spacing:0.5em; opacity:.45; margin:0.2rem 0 1.6rem; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background:var(--card); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:2rem;
-      text-align:center; color:var(--muted);
-      font-size:0.7rem; font-weight:400; line-height:2.2;
+      box-shadow:var(--shadow); padding:1.8rem 1.5rem;
+      text-align:center; color:var(--muted); font-size:0.68rem; line-height:2.2;
     }
     .back-top {
-      display:inline-block; margin-top:1rem;
-      font-size:0.7rem; font-weight:700; letter-spacing:0.15em;
+      display:inline-block; margin-top:0.9rem;
+      font-size:0.68rem; font-weight:700; letter-spacing:0.15em;
       color:var(--purple); text-decoration:none;
     }
 
     @media(max-width:600px){
       .nav-inner { padding:0 1rem; }
-      .nav-links { gap:1.2rem; }
+      .nav-links { gap:1.1rem; }
       .page { padding:1.2rem 1rem 3rem; }
-      .hero-card { padding:2.4rem 1.2rem 2rem; }
-      .card-grid { grid-template-columns:1fr; }
+      .hero-card { padding:2.2rem 1.2rem 2rem; }
+      .card-grid-2 { grid-template-columns:1fr; }
       .about-grid { grid-template-columns:1fr; }
       .link-card-grid { grid-template-columns:1fr; }
     }
@@ -325,13 +241,13 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><span class="clv">☘</span> 趙喚好運</a>
+    <a href="index.html" class="nav-logo">☘ 趙喚好運</a>
     <ul class="nav-links">
       <li><a href="#works">作品集</a></li>
       <li><a href="#timeline">年表</a></li>
+      <li><a href="ads.html">廣告</a></li>
       <li><a href="#links">連結</a></li>
       <li><a href="#about">關於</a></li>
     </ul>
@@ -340,15 +256,13 @@
 
 <div class="page">
 
-  <!-- HERO CARD -->
+  <!-- HERO -->
   <div class="hero-card">
     <div class="hero-clover">☘ &nbsp; ☘ &nbsp; ☘</div>
     <div class="hero-tag">趙妮綺粉絲記錄站 · 趙喚好運</div>
     <h1 class="hero-name">趙妮綺</h1>
-    <div class="hero-name-sub">Tanya Zhao &nbsp;·&nbsp; 여정</div>
-    <div class="hero-divider">
-      <span class="hero-divider-dot">☘ ✦ ☘</span>
-    </div>
+    <div class="hero-sub">Tanya Zhao &nbsp;·&nbsp; 여정</div>
+    <div class="hero-rule"><span>☘ ✦ ☘</span></div>
     <p class="hero-bio">
       台灣演員。喜歡透過細膩觀察與真誠的表達，<br>
       詮釋不同的生命樣貌。<br>
@@ -361,11 +275,9 @@
     </div>
   </div>
 
-  <!-- INTRO CARD -->
+  <!-- INTRO -->
   <div class="intro-card">
-    <p>大家好。<br>
-    我是趙喚好運的一員。<br>
-    在那片白色的光裡，默默記錄屬於妮綺的每一個軌跡。</p>
+    <p>大家好。<br>我是趙喚好運的一員。<br>在那片白色的光裡，默默記錄屬於妮綺的每一個軌跡。</p>
     <div class="sign">☘ &nbsp; 內容僅供記錄，版權屬原著作人所有 &nbsp; ☘</div>
   </div>
 
@@ -375,9 +287,8 @@
       <h2>作品集</h2>
       <span class="lsub">Filmography</span>
     </div>
-    <div class="card-grid">
+    <div class="card-grid-2">
 
-      <!-- 果實 -->
       <div class="work-card">
         <div class="work-card-top">
           <span class="work-year">2026</span>
@@ -386,46 +297,42 @@
         <div class="work-title">果實 fruit</div>
         <div class="work-role"><span>飾</span>果舒</div>
         <div class="work-synopsis">
-          有些情感，慢慢結成。一段關於成長與克制的故事。<br>
-          透過兩位角色之間若即若離的情感，呈現青春時期複雜而深刻的情緒變化，以回憶與現實交錯的方式展開，逐步拼湊出多年未曾說出口的心意。
+          有些情感，慢慢結成。一段關於成長與克制的故事。透過兩位角色之間若即若離的情感，呈現青春時期複雜而深刻的情緒變化。
         </div>
         <div class="work-meta">
-          <div class="work-meta-row"><span class="work-meta-k">類型</span><span class="work-meta-v">微短劇・台灣百合 GL・共 10 集</span></div>
-          <div class="work-meta-row"><span class="work-meta-k">播出</span><span class="work-meta-v">2026 年 3 月 27 日</span></div>
-          <div class="work-meta-row"><span class="work-meta-k">平台</span><span class="work-meta-v">RS IP Lab YouTube 頻道（全球）</span></div>
+          <div class="work-meta-row"><span class="work-meta-k">類型</span><span class="work-meta-v">微短劇・GL・共 10 集</span></div>
+          <div class="work-meta-row"><span class="work-meta-k">播出</span><span class="work-meta-v">2026.03.27</span></div>
+          <div class="work-meta-row"><span class="work-meta-k">平台</span><span class="work-meta-v">RS IP Lab YouTube</span></div>
           <div class="work-meta-row"><span class="work-meta-k">導演</span><span class="work-meta-v">林艾德</span></div>
           <div class="work-meta-row"><span class="work-meta-k">監製</span><span class="work-meta-v">瞿友寧</span></div>
-          <div class="work-meta-row"><span class="work-meta-k">製作</span><span class="work-meta-v">蕭蓉・熙陽文創 RS IP Lab</span></div>
           <div class="work-meta-row"><span class="work-meta-k">主演</span><span class="work-meta-v">姚愛寗・趙妮綺</span></div>
         </div>
         <div class="work-links">
           <a href="https://www.youtube.com/@RSIPLab" target="_blank" class="work-link work-link-clover">☘ 官方頻道</a>
-          <a href="https://youtu.be/4iZlvbuuHa8" target="_blank" class="work-link">▶ 官方預告</a>
+          <a href="https://youtu.be/4iZlvbuuHa8" target="_blank" class="work-link">▶ 預告</a>
         </div>
       </div>
 
-      <!-- 晚安，馬卡龍 -->
       <div class="work-card">
         <div class="work-card-top">
           <span class="work-year">2025</span>
           <span class="badge badge-sub">出演</span>
         </div>
-        <div class="work-title">公視人生劇展<br>《晚安，馬卡龍》</div>
+        <div class="work-title">公視人生劇展《晚安，馬卡龍》</div>
         <div class="work-role"><span>飾</span>田田（校花）</div>
         <div class="work-synopsis">
-          校園喜劇劇情片。田田看似光鮮亮麗的校花外表下，也是霸凌鏈條的一環。趙妮綺有一場集體中邪、吐出綠色液體的挑戰演出，象徵被壓抑的恐懼與反噬。
+          校園喜劇劇情片。田田看似光鮮的校花外表下，也是霸凌鏈條的一環。趙妮綺有一場集體中邪的挑戰演出。
         </div>
         <div class="work-meta">
-          <div class="work-meta-row"><span class="work-meta-k">類型</span><span class="work-meta-v">電視電影・台灣校園喜劇</span></div>
-          <div class="work-meta-row"><span class="work-meta-k">播出</span><span class="work-meta-v">2025 年 11 月 23 日 22:00</span></div>
+          <div class="work-meta-row"><span class="work-meta-k">類型</span><span class="work-meta-v">電視電影・校園喜劇</span></div>
+          <div class="work-meta-row"><span class="work-meta-k">播出</span><span class="work-meta-v">2025.11.23 22:00</span></div>
           <div class="work-meta-row"><span class="work-meta-k">平台</span><span class="work-meta-v">公共電視・公視+</span></div>
           <div class="work-meta-row"><span class="work-meta-k">導演</span><span class="work-meta-v">黃鈺婷・王傳宗</span></div>
-          <div class="work-meta-row"><span class="work-meta-k">編劇</span><span class="work-meta-v">黃鈺婷</span></div>
           <div class="work-meta-row"><span class="work-meta-k">主演</span><span class="work-meta-v">林毓家・許莉廷</span></div>
-          <div class="work-meta-row"><span class="work-meta-k">出演</span><span class="work-meta-v">許乃涵・舒偉傑・趙妮綺・呂慕堯</span></div>
+          <div class="work-meta-row"><span class="work-meta-k">出演</span><span class="work-meta-v">許乃涵・趙妮綺・呂慕堯</span></div>
         </div>
         <div class="work-links">
-          <a href="https://www.youtube.com/watch?v=zD2AhHEwAKE" target="_blank" class="work-link work-link-clover">☘ 公視+線上看</a>
+          <a href="https://www.youtube.com/watch?v=zD2AhHEwAKE" target="_blank" class="work-link work-link-clover">☘ 公視+</a>
           <a href="https://www.pts.org.tw/" target="_blank" class="work-link">↗ 公視官網</a>
         </div>
       </div>
@@ -448,21 +355,28 @@
           <div class="tl-yr">2026</div>
           <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="tl-body">
-            <div class="tl-title">《果實》</div>
-            <div class="tl-detail">主演 · 飾果舒</div>
+            <div class="tl-title">《果實》fruit</div>
+            <div class="tl-detail">主演 · 飾果舒 · 3.27 播出</div>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-yr">2026</div>
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-title">聯邦台 WAY 大賞廣告「說台語才夠味」</div>
+            <div class="tl-detail">商業廣告演出</div>
           </div>
         </div>
 
         <div class="tl-row">
           <div class="tl-yr">2025</div>
-          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-spine"><div class="tl-dot"></div></div>
           <div class="tl-body">
             <div class="tl-title">公視人生劇展《晚安，馬卡龍》</div>
             <div class="tl-detail">出演 · 飾田田 · 11.23 播出</div>
           </div>
         </div>
-
-
 
       </div>
     </div>
@@ -480,28 +394,31 @@
 
       <a href="https://www.instagram.com/tanya_o_c/" target="_blank" class="link-card">
         <div class="link-icon-wrap">📷</div>
-        <div>
-          <div class="link-label">Instagram</div>
-          <div class="link-sub">@tanya_o_c · 170K+</div>
-        </div>
+        <div><div class="link-label">Instagram</div><div class="link-sub">@tanya_o_c · 170K+</div></div>
         <span class="link-arr">↗</span>
       </a>
 
       <a href="https://www.tiktok.com/@tanya_o_c" target="_blank" class="link-card">
         <div class="link-icon-wrap">▶</div>
-        <div>
-          <div class="link-label">TikTok</div>
-          <div class="link-sub">@tanya_o_c · 993K+</div>
-        </div>
+        <div><div class="link-label">TikTok</div><div class="link-sub">@tanya_o_c · 993K+</div></div>
         <span class="link-arr">↗</span>
+      </a>
+
+      <a href="https://www.youtube.com/@tanyadreamlife" target="_blank" class="link-card">
+        <div class="link-icon-wrap">🎥</div>
+        <div><div class="link-label">Vlog 頻道</div><div class="link-sub">@tanyadreamlife</div></div>
+        <span class="link-arr">↗</span>
+      </a>
+
+      <a href="ads.html" class="link-card">
+        <div class="link-icon-wrap">🎞️</div>
+        <div><div class="link-label">廣告作品</div><div class="link-sub">查看所有廣告演出</div></div>
+        <span class="link-arr">→</span>
       </a>
 
       <a href="https://www.clappins.com/person/tanyadmofficial" target="_blank" class="link-card">
         <div class="link-icon-wrap">🎬</div>
-        <div>
-          <div class="link-label">拍手 Clappins</div>
-          <div class="link-sub">演員官方履歷</div>
-        </div>
+        <div><div class="link-label">拍手 Clappins</div><div class="link-sub">演員官方履歷</div></div>
         <span class="link-arr">↗</span>
       </a>
 
@@ -520,15 +437,15 @@
       <div class="about-grid">
         <div class="about-text">
           <p>這是由粉絲自發製作的非官方考古記錄站，粉絲團名稱：<span style="color:var(--purple)">趙喚好運</span>。</p>
-          <p>趙妮綺，英文名 Tanya Zhao，台灣演員，以細膩觀察力與真誠表達見長。近年在公視、多元平台皆留下足跡，持續拓展表演版圖。</p>
+          <p>趙妮綺，英文名 Tanya Zhao，2000年生，台灣演員。大學就讀韓國漢陽大學表演系，裴斗娜為其學姐。曾獲車銀優 Fantagio 接觸，最終選擇回台走演員之路，簽入張鈞甯旗下。</p>
           <p>本站僅供個人記錄，版權屬原著作人所有。不儲存任何影音或圖片，所有資料均連結至原始來源。</p>
         </div>
         <div class="info-rows">
           <div class="info-row"><span class="info-k">藝名</span><span class="info-v">趙妮綺 · Tanya Zhao</span></div>
-          <div class="info-row"><span class="info-k">生日</span><span class="info-v">8 月 11 日</span></div>
+          <div class="info-row"><span class="info-k">生日</span><span class="info-v">2000 年 8 月 12 日</span></div>
           <div class="info-row"><span class="info-k">職業</span><span class="info-v">演員</span></div>
-          <div class="info-row"><span class="info-k">Instagram</span><span class="info-v">@tanya_o_c</span></div>
-          <div class="info-row"><span class="info-k">經紀</span><span class="info-v">ning cohesion creative</span></div>
+          <div class="info-row"><span class="info-k">學歷</span><span class="info-v">韓國漢陽大學表演系</span></div>
+          <div class="info-row"><span class="info-k">經紀</span><span class="info-v">張鈞甯旗下 ning cohesion</span></div>
           <div class="info-row"><span class="info-k">喜歡</span><span class="info-v">白色 · 淡紫色 · 幸運草 ☘</span></div>
           <div class="info-row"><span class="info-k">粉絲團</span><span class="info-v">趙喚好運</span></div>
         </div>
@@ -541,10 +458,9 @@
     <div>趙喚好運 &nbsp;·&nbsp; 趙妮綺非官方記錄站</div>
     <div>內容僅供個人紀錄用，版權屬原著作人所有。</div>
     <div>網站不儲存任何影音、圖片或訪談內容，所有資料皆連結至原始來源。</div>
-    <div>若原始內容下架，網站亦無法閱覽。</div>
     <a href="#" class="back-top">☘ 回到頂端 ↑</a>
   </footer>
 
-</div><!-- /page -->
+</div>
 </body>
 </html>

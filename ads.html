@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>廣告作品 · 趙喚好運</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #f7f5fa;
+      --card:    #ffffff;
+      --border:  #e4dff0;
+      --purple:  #9b8fb5;
+      --purple-l:#c5bedd;
+      --purple-s:#f0edf8;
+      --clover:  #7aac8a;
+      --clover-s:#eef5f1;
+      --text:    #1e1a24;
+      --dim:     #6b6375;
+      --muted:   #aba5b8;
+      --shadow:  0 2px 16px rgba(155,143,181,0.10);
+      --shadow-h:0 6px 28px rgba(155,143,181,0.18);
+      --radius:  14px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--bg); color:var(--text);
+      font-family:'Noto Sans TC',sans-serif; font-weight:400;
+      line-height:1.85; min-height:100vh;
+    }
+
+    /* NAV */
+    nav {
+      position:sticky; top:0; z-index:100;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:780px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 1.5rem; height:54px;
+    }
+    .nav-logo {
+      font-weight:700; font-size:0.88rem; letter-spacing:0.15em;
+      color:var(--purple); text-decoration:none;
+    }
+    .nav-links { display:flex; gap:1.6rem; list-style:none; }
+    .nav-links a {
+      font-size:0.78rem; font-weight:700; letter-spacing:0.08em;
+      color:var(--dim); text-decoration:none; transition:color .2s;
+    }
+    .nav-links a:hover { color:var(--purple); }
+    .nav-links a.active { color:var(--purple); }
+
+    /* PAGE */
+    .page { max-width:780px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+
+    /* PAGE HEADER CARD */
+    .page-header {
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:2.4rem 2rem;
+      text-align:center; margin-bottom:1.6rem;
+    }
+    .page-header .clover { font-size:1.1rem; letter-spacing:0.5em; color:var(--clover); margin-bottom:1rem; opacity:.65; }
+    .page-header h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.15em; color:var(--text); margin-bottom:0.4rem; }
+    .page-header p { font-size:0.82rem; color:var(--dim); line-height:2; }
+
+    /* SECTION */
+    .section-label { display:flex; align-items:center; gap:0.7rem; margin-bottom:0.9rem; }
+    .section-label h2 { font-size:0.93rem; font-weight:700; letter-spacing:0.15em; color:var(--text); }
+    .section-label .lsub { font-size:0.7rem; font-weight:400; color:var(--muted); }
+
+    /* AD CARD — full width */
+    .ad-card {
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:1.6rem;
+      margin-bottom:1rem;
+      transition:box-shadow .2s, transform .2s;
+    }
+    .ad-card:hover { box-shadow:var(--shadow-h); transform:translateY(-2px); }
+    .ad-card-top {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:0.8rem;
+    }
+    .ad-year {
+      font-size:0.62rem; font-weight:700; letter-spacing:0.2em; color:var(--purple);
+      background:var(--purple-s); padding:0.1rem 0.55rem; border-radius:100px;
+    }
+    .ad-badge {
+      font-size:0.58rem; font-weight:700; padding:0.1rem 0.55rem;
+      border-radius:100px; background:#fff3e0; color:#e08c3a;
+    }
+    .ad-body { display:flex; gap:1.4rem; align-items:flex-start; }
+    .ad-icon {
+      width:56px; height:56px; border-radius:12px;
+      background:var(--purple-s); display:flex; align-items:center;
+      justify-content:center; font-size:1.6rem; flex-shrink:0;
+    }
+    .ad-info { flex:1; }
+    .ad-brand { font-size:0.68rem; font-weight:700; color:var(--purple); letter-spacing:0.1em; margin-bottom:0.2rem; }
+    .ad-title { font-size:1rem; font-weight:700; color:var(--text); line-height:1.4; margin-bottom:0.5rem; }
+    .ad-desc { font-size:0.75rem; color:var(--dim); line-height:1.8; margin-bottom:0.9rem; }
+    .ad-meta { display:flex; flex-direction:column; gap:0.18rem; margin-bottom:0.9rem; }
+    .ad-meta-row { display:flex; gap:0.5rem; font-size:0.69rem; }
+    .ad-meta-k { font-weight:700; color:var(--muted); width:44px; flex-shrink:0; }
+    .ad-meta-v { color:var(--dim); }
+    .ad-links { display:flex; gap:0.45rem; flex-wrap:wrap; }
+    .ad-link {
+      display:inline-flex; align-items:center; gap:0.3rem;
+      font-size:0.68rem; font-weight:700; padding:0.3rem 0.85rem;
+      border-radius:100px; text-decoration:none; transition:all .2s;
+      border:1px solid var(--border); color:var(--purple); background:var(--purple-s);
+    }
+    .ad-link:hover { background:var(--purple); color:#fff; border-color:var(--purple); }
+    .ad-link-clover { background:var(--clover-s); color:var(--clover); border-color:transparent; }
+    .ad-link-clover:hover { background:var(--clover); color:#fff; }
+
+    /* EMPTY STATE */
+    .empty-card {
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:2.5rem;
+      text-align:center; color:var(--muted);
+      font-size:0.8rem; line-height:2;
+    }
+
+    /* CLOVER DIV */
+    .clover-div { text-align:center; font-size:0.72rem; color:var(--clover); letter-spacing:0.5em; opacity:.45; margin:0.2rem 0 1.6rem; }
+
+    /* FOOTER */
+    footer {
+      background:var(--card); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:1.8rem 1.5rem;
+      text-align:center; color:var(--muted); font-size:0.68rem; line-height:2.2;
+    }
+    .back-top {
+      display:inline-block; margin-top:0.9rem;
+      font-size:0.68rem; font-weight:700; letter-spacing:0.15em;
+      color:var(--purple); text-decoration:none;
+    }
+
+    @media(max-width:600px){
+      .nav-inner { padding:0 1rem; }
+      .nav-links { gap:1.1rem; }
+      .page { padding:1.2rem 1rem 3rem; }
+      .ad-body { flex-direction:column; gap:0.9rem; }
+      .ad-icon { width:44px; height:44px; font-size:1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">☘ 趙喚好運</a>
+    <ul class="nav-links">
+      <li><a href="index.html#works">作品集</a></li>
+      <li><a href="index.html#timeline">年表</a></li>
+      <li><a href="ads.html" class="active">廣告</a></li>
+      <li><a href="index.html#links">連結</a></li>
+      <li><a href="index.html#about">關於</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="clover">☘ &nbsp; ☘ &nbsp; ☘</div>
+    <h1>廣告作品</h1>
+    <p>記錄趙妮綺參與的商業廣告演出。<br>與作品的相遇，也是與她的相遇。</p>
+  </div>
+
+  <!-- 2026 -->
+  <div class="section-label">
+    <h2>2026</h2>
+    <span class="lsub">Commercial</span>
+  </div>
+
+  <div class="ad-card">
+    <div class="ad-card-top">
+      <span class="ad-year">2026</span>
+      <span class="ad-badge">廣告</span>
+    </div>
+    <div class="ad-body">
+      <div class="ad-icon">📺</div>
+      <div class="ad-info">
+        <div class="ad-brand">聯邦台 FEDERAL TV</div>
+        <div class="ad-title">2026 聯邦台 WAY 大賞<br>「說台語才夠味」</div>
+        <div class="ad-desc">
+          聯邦台 WAY 大賞年度廣告，趙妮綺以台語演出，展現活潑生動的一面。
+        </div>
+        <div class="ad-meta">
+          <div class="ad-meta-row"><span class="ad-meta-k">品牌</span><span class="ad-meta-v">聯邦台</span></div>
+          <div class="ad-meta-row"><span class="ad-meta-k">年份</span><span class="ad-meta-v">2026</span></div>
+        </div>
+        <div class="ad-links">
+          <a href="https://www.youtube.com/watch?v=uwdsk8jaPF4" target="_blank" class="ad-link ad-link-clover">☘ 觀看廣告</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clover-div">☘ &nbsp; ☘ &nbsp; ☘</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>趙喚好運 &nbsp;·&nbsp; 趙妮綺非官方記錄站</div>
+    <div>內容僅供個人紀錄用，版權屬原著作人所有。</div>
+    <div>若原始內容下架，網站亦無法閱覽。</div>
+    <a href="#" class="back-top">☘ 回到頂端 ↑</a>
+  </footer>
+
+</div>
+</body>
+</html>
