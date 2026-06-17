@@ -255,16 +255,11 @@
     vlogScroll.scrollBy({ left: 320, behavior: "smooth" });
   });
 
-  // Click-to-play
+  // Click → 開啟 YouTube
   document.querySelectorAll(".yt-embed-wrap[data-videoid]").forEach(wrap => {
+    wrap.style.cursor = "pointer";
     wrap.addEventListener("click", () => {
-      const id = wrap.dataset.videoid;
-      const iframe = document.createElement("iframe");
-      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      wrap.innerHTML = "";
-      wrap.appendChild(iframe);
+      window.open(`https://www.youtube.com/watch?v=${wrap.dataset.videoid}`, "_blank");
     });
   });
 
