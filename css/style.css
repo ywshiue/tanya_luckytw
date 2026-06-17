@@ -541,7 +541,6 @@ footer a { color: var(--accent); }
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #1a1020;
-  border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
   cursor: pointer;
 }
@@ -550,31 +549,43 @@ footer a { color: var(--accent); }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease;
+  display: block;
 }
 .yt-embed-wrap:hover .yt-poster {
   transform: scale(1.03);
-  filter: brightness(0.85);
 }
-/* 自訂播放按鈕 */
+/* 播放按鈕 — 半透明白色三角，參考站風格 */
 .yt-play-overlay {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  background: transparent;
-  border: none; cursor: pointer;
+  background: rgba(0,0,0,0.08);
+  border: none; cursor: pointer; padding: 0;
+  transition: background 0.22s;
+}
+.yt-embed-wrap:hover .yt-play-overlay {
+  background: rgba(0,0,0,0.18);
 }
 .yt-play-icon {
-  width: 64px; height: 64px;
+  width: 56px; height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+  background: rgba(255,255,255,0.88);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; color: #fff; padding-left: 4px;
-  box-shadow: 0 4px 24px rgba(100,40,160,0.45);
-  transition: transform 0.22s, box-shadow 0.22s;
+  padding-left: 5px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  transition: transform 0.22s, background 0.22s;
+}
+.yt-play-icon::after {
+  content: '';
+  display: block;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #2d2040;
 }
 .yt-embed-wrap:hover .yt-play-icon {
-  transform: scale(1.12);
-  box-shadow: 0 6px 32px rgba(100,40,160,0.6);
+  transform: scale(1.1);
+  background: rgba(255,255,255,1);
 }
 /* iframe 載入後 */
 .yt-embed-wrap iframe {
@@ -582,13 +593,25 @@ footer a { color: var(--accent); }
   width: 100%; height: 100%;
   border: none;
 }
-.yt-info { padding: 1rem 1.1rem 1.1rem; }
-.yt-badge-row { display: flex; gap: 0.45rem; align-items: center; margin-bottom: 0.5rem; }
-.yt-title { font-weight: 700; font-size: 0.9rem; color: var(--text); line-height: 1.45; margin-bottom: 0.3rem; }
-.yt-sub   { font-size: 0.75rem; color: var(--accent); font-weight: 500; }
-.yt-date  { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.3rem; }
+/* 卡片資訊區 */
+.yt-info {
+  padding: 1rem 1.1rem 1.1rem;
+}
+.yt-badge-row {
+  display: flex; gap: 0.45rem; align-items: center; margin-bottom: 0.5rem;
+}
+.yt-title {
+  font-weight: 700; font-size: 0.95rem;
+  color: var(--text); line-height: 1.4; margin-bottom: 0.25rem;
+}
+.yt-sub {
+  font-size: 0.8rem; color: var(--accent); font-weight: 500; margin-bottom: 0.2rem;
+}
+.yt-date {
+  font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;
+}
 
 @media(max-width:600px){
   .yt-grid { grid-template-columns: 1fr; }
-  .yt-play-icon { width: 52px; height: 52px; font-size: 1.1rem; }
+  .yt-play-icon { width: 46px; height: 46px; }
 }
