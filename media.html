@@ -63,14 +63,19 @@
     }
 
     /* Shorts 直式卡片 9:16 */
-    .yt-card-short { flex: 0 0 180px; } /* 比橫式窄 */
-    .yt-embed-short { aspect-ratio: 9 / 16; }
+    .yt-card-short { flex: 0 0 300px; } /* 同橫式寬度 */
+    .yt-embed-short {
+      aspect-ratio: 16 / 9; /* 強制橫式，裁切直式縮圖 */
+    }
+    .yt-embed-short .yt-poster {
+      object-position: center top; /* 保留上方臉部 */
+    }
 
     @media(max-width:600px){
       .yt-scroll-wrap { margin: 0 -1rem; }
       .yt-scroll { padding: 0.4rem 1rem 1.2rem; }
       .yt-scroll .yt-card { flex: 0 0 260px; }
-      .yt-card-short { flex: 0 0 150px; }
+      .yt-card-short { flex: 0 0 260px; }
     }
   </style>
 </head>
@@ -228,7 +233,7 @@
 
   <!-- 訪談 -->
   <div class="section-header">
-    <div class="section-title">訪談 <span class="count-tag">2 支</span></div>
+    <div class="section-title">訪談影片 <span class="count-tag">2 支</span></div>
   </div>
   <div class="scroll-arrows">
     <button class="scroll-arrow" id="interviewPrev">&#8592;</button>
@@ -238,7 +243,6 @@
   <div class="yt-scroll-wrap">
     <div class="yt-scroll" id="interviewScroll">
 
-      <!-- 一般橫向影片 16:9 -->
       <div class="yt-card">
         <div class="yt-embed-wrap" data-videoid="3rHJnhgtJO8" data-url="https://www.youtube.com/watch?v=3rHJnhgtJO8">
           <img class="yt-poster" src="https://img.youtube.com/vi/3rHJnhgtJO8/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/3rHJnhgtJO8/hqdefault.jpg'" alt="訪談">
@@ -252,8 +256,7 @@
         </div>
       </div>
 
-      <!-- Shorts 直式影片 9:16 -->
-      <div class="yt-card yt-card-short">
+      <div class="yt-card">
         <div class="yt-embed-wrap yt-embed-short" data-videoid="CzrJMj32Y6M" data-url="https://www.youtube.com/shorts/CzrJMj32Y6M">
           <img class="yt-poster" src="https://img.youtube.com/vi/CzrJMj32Y6M/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/CzrJMj32Y6M/hqdefault.jpg'" alt="訪談 Short">
           <button class="yt-play-overlay" aria-label="前往 YouTube">
@@ -267,6 +270,30 @@
       </div>
 
     </div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <!-- 文字新聞 -->
+  <div class="section-header">
+    <div class="section-title">文字報導 <span class="count-tag">2 篇</span></div>
+  </div>
+  <div class="news-list">
+
+    <a href="https://stars.udn.com/star/story/10091/9147903" target="_blank" class="news-card">
+      <div class="news-source">噓！星聞 · 聯合報</div>
+      <div class="news-title">差點同門車銀優！趙妮綺「媽媽愛張鈞甯」主動寄履歷美夢成真</div>
+      <div class="news-date">2025.11.18</div>
+      <span class="news-arr">↗</span>
+    </a>
+
+    <a href="https://www.chinatimes.com/newspapers/20251119000620-260112" target="_blank" class="news-card">
+      <div class="news-source">中國時報</div>
+      <div class="news-title">趙妮綺挺身護同學 反遭校園霸凌</div>
+      <div class="news-date">2025.11.19</div>
+      <span class="news-arr">↗</span>
+    </a>
+
   </div>
 
   <div class="note-card" style="margin-top:1.8rem">
