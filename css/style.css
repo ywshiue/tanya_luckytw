@@ -571,17 +571,14 @@ footer a { color: var(--accent); }
   border-radius: 50%;
   background: rgba(255,255,255,0.88);
   display: flex; align-items: center; justify-content: center;
-  padding-left: 5px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.25);
   transition: transform 0.22s, background 0.22s;
+  flex-shrink: 0;
 }
-.yt-play-icon::after {
-  content: '';
-  display: block;
-  width: 0; height: 0;
-  border-style: solid;
-  border-width: 10px 0 10px 18px;
-  border-color: transparent transparent transparent #2d2040;
+.yt-play-icon svg {
+  width: 22px; height: 22px;
+  margin-left: 4px;
+  fill: #2d2040;
 }
 .yt-embed-wrap:hover .yt-play-icon {
   transform: scale(1.1);
