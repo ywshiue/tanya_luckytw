@@ -513,3 +513,63 @@ footer a { color: var(--accent); }
   .section, .section-wide { padding: 2.2rem 1rem; }
   .link-grid-preview { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════════════════
+   影音卡片 (YouTube embed style)
+   ══════════════════════════════════════════ */
+.yt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+}
+.yt-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.yt-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(155,114,207,0.22);
+}
+.yt-thumb-wrap {
+  display: block;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-soft), rgba(240,168,204,0.2));
+  text-decoration: none;
+}
+.yt-thumb {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.3s ease;
+}
+.yt-card:hover .yt-thumb { transform: scale(1.04); }
+.yt-play-btn {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(45,32,64,0.20);
+  transition: background 0.22s;
+}
+.yt-play-btn::after {
+  content: '▶';
+  font-size: 2.4rem; color: #fff;
+  text-shadow: 0 2px 14px rgba(100,40,160,0.5);
+  transition: transform 0.22s;
+  line-height: 1;
+}
+.yt-card:hover .yt-play-btn { background: rgba(45,32,64,0.38); }
+.yt-card:hover .yt-play-btn::after { transform: scale(1.15); }
+.yt-info { padding: 1rem 1.1rem 1.1rem; }
+.yt-badge-row { display: flex; gap: 0.45rem; align-items: center; margin-bottom: 0.5rem; }
+.yt-title { font-weight: 700; font-size: 0.9rem; color: var(--text); line-height: 1.45; margin-bottom: 0.3rem; }
+.yt-sub   { font-size: 0.75rem; color: var(--accent); font-weight: 500; }
+.yt-date  { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+@media(max-width:600px){
+  .yt-grid { grid-template-columns: 1fr; }
+}
