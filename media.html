@@ -274,26 +274,40 @@
 
   <div style="height:2rem"></div>
 
-  <!-- 文字新聞 -->
+  <!-- 文字報導 -->
   <div class="section-header">
-    <div class="section-title">文字報導 <span class="count-tag">2 篇</span></div>
+    <div class="section-title">文字報導 <span class="count-tag">3 篇</span></div>
   </div>
-  <div class="news-list">
+  <div class="scroll-arrows">
+    <button class="scroll-arrow" id="newsPrev">&#8592;</button>
+    <button class="scroll-arrow" id="newsNext">&#8594;</button>
+  </div>
 
-    <a href="https://stars.udn.com/star/story/10091/9147903" target="_blank" class="news-card">
-      <div class="news-source">噓！星聞 · 聯合報</div>
-      <div class="news-title">差點同門車銀優！趙妮綺「媽媽愛張鈞甯」主動寄履歷美夢成真</div>
-      <div class="news-date">2025.11.18</div>
-      <span class="news-arr">↗</span>
-    </a>
+  <div class="yt-scroll-wrap">
+    <div class="yt-scroll" id="newsScroll">
 
-    <a href="https://www.chinatimes.com/newspapers/20251119000620-260112" target="_blank" class="news-card">
-      <div class="news-source">中國時報</div>
-      <div class="news-title">趙妮綺挺身護同學 反遭校園霸凌</div>
-      <div class="news-date">2025.11.19</div>
-      <span class="news-arr">↗</span>
-    </a>
+      <div class="news-card-h">
+        <div class="news-source">PopDaily 波波黛莉</div>
+        <div class="news-title">台灣原創GL百合微短劇《果實》3月27日全球上線 海外觀眾佔七成關注</div>
+        <div class="news-date">2026.03.27</div>
+        <a href="https://www.popdaily.com.tw/press/1609016" target="_blank" class="news-link">閱讀全文 ↗</a>
+      </div>
 
+      <div class="news-card-h">
+        <div class="news-source">噓！星聞 · 聯合報</div>
+        <div class="news-title">差點同門車銀優！趙妮綺「媽媽愛張鈞甯」主動寄履歷美夢成真</div>
+        <div class="news-date">2025.11.18</div>
+        <a href="https://stars.udn.com/star/story/10091/9147903" target="_blank" class="news-link">閱讀全文 ↗</a>
+      </div>
+
+      <div class="news-card-h">
+        <div class="news-source">中國時報</div>
+        <div class="news-title">趙妮綺挺身護同學 反遭校園霸凌</div>
+        <div class="news-date">2025.11.19</div>
+        <a href="https://www.chinatimes.com/newspapers/20251119000620-260112" target="_blank" class="news-link">閱讀全文 ↗</a>
+      </div>
+
+    </div>
   </div>
 
   <div class="note-card" style="margin-top:1.8rem">
@@ -339,6 +353,15 @@
   });
   document.getElementById("interviewNext").addEventListener("click", () => {
     interviewScroll.scrollBy({ left: 320, behavior: "smooth" });
+  });
+
+  // 左右箭頭 — 文字報導
+  const newsScroll = document.getElementById("newsScroll");
+  document.getElementById("newsPrev").addEventListener("click", () => {
+    newsScroll.scrollBy({ left: -280, behavior: "smooth" });
+  });
+  document.getElementById("newsNext").addEventListener("click", () => {
+    newsScroll.scrollBy({ left: 280, behavior: "smooth" });
   });
 
   // Click → 開啟 YouTube（支援 data-url 自訂連結，如 Shorts）
