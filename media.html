@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>影音 — 趙喚好運</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── 橫向滑動容器 ── */
+    .yt-scroll-wrap {
+      position: relative;
+      margin: 0 -1.6rem; /* 出血到頁面邊緣 */
+    }
+    .yt-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.4rem 1.6rem 1.2rem;
+      scrollbar-width: none; /* Firefox */
+    }
+    .yt-scroll::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+    .yt-scroll .yt-card {
+      flex: 0 0 300px; /* 固定卡片寬度 */
+      scroll-snap-align: start;
+    }
+
+    /* 左右箭頭按鈕 */
+    .scroll-arrows {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+      justify-content: flex-end;
+    }
+    .scroll-arrow {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--bg-card-solid);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .scroll-arrow:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* 漸層遮罩提示可滑動 */
+    .yt-scroll-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: calc(100% - 1.2rem);
+      background: linear-gradient(to left, var(--bg), transparent);
+      pointer-events: none;
+    }
+
+    @media(max-width:600px){
+      .yt-scroll-wrap { margin: 0 -1rem; }
+      .yt-scroll { padding: 0.4rem 1rem 1.2rem; }
+      .yt-scroll .yt-card { flex: 0 0 260px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="site-title"><span class="clv">☘</span> 趙喚好運</a>
+  <div class="header-right">
+    <nav>
+      <a href="works.html">作品集</a>
+      <a href="media.html" class="active">影音</a>
+      <a href="timeline.html">時序年表</a>
+      <a href="links.html">官方連結</a>
+      <a href="about.html">關於</a>
+    </nav>
+    <button class="toggle-btn" id="themeToggle" title="切換深色模式" aria-label="切換深色模式"></button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <a href="index.html" class="page-hero-back">← 返回首頁</a>
+    <div class="page-hero-title">影音</div>
+    <div class="page-hero-sub">Media</div>
+    <div class="page-hero-desc">
+      <p>趙妮綺的廣告演出與 Vlog 紀錄。<br>點擊縮圖即可在頁面內播放。</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+
+  <!-- 廣告演出 -->
+  <div class="section-header">
+    <div class="section-title">廣告演出 <span class="count-tag">1 支</span></div>
+  </div>
+
+  <div class="yt-scroll-wrap">
+    <div class="yt-scroll" id="adsScroll">
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="uwdsk8jaPF4">
+          <img class="yt-poster" src="https://img.youtube.com/vi/uwdsk8jaPF4/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/uwdsk8jaPF4/hqdefault.jpg'" alt="2026聯邦台WAY大賞">
+          <button class="yt-play-overlay" aria-label="播放影片">
+            <span class="yt-play-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="6,3 20,12 6,21"/></svg>
+            </span>
+          </button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title">2026 聯邦台 WAY 大賞｜說台語才夠味</div>
+          <div class="yt-sub">聯邦商業銀行</div>
+          <div class="yt-date">2026 · 廣告演出</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="height:2rem"></div>
+
+  <!-- Vlog -->
+  <div class="section-header">
+    <div class="section-title">Vlog <span class="count-tag">7 部</span></div>
+    <a href="https://www.youtube.com/@tanyadreamlife" target="_blank" class="view-all-btn">前往頻道 ↗</a>
+  </div>
+  <div class="scroll-arrows">
+    <button class="scroll-arrow" id="vlogPrev">&#8592;</button>
+    <button class="scroll-arrow" id="vlogNext">&#8594;</button>
+  </div>
+
+  <div class="yt-scroll-wrap">
+    <div class="yt-scroll" id="vlogScroll">
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="tJn_8q1Xa9c">
+          <img class="yt-poster" src="https://img.youtube.com/vi/tJn_8q1Xa9c/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/tJn_8q1Xa9c/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="tJn_8q1Xa9c">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="eJYjQtlnf5k">
+          <img class="yt-poster" src="https://img.youtube.com/vi/eJYjQtlnf5k/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/eJYjQtlnf5k/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="eJYjQtlnf5k">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="3TMT1W0tiVg">
+          <img class="yt-poster" src="https://img.youtube.com/vi/3TMT1W0tiVg/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/3TMT1W0tiVg/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="3TMT1W0tiVg">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="EOqVcCHuSlM">
+          <img class="yt-poster" src="https://img.youtube.com/vi/EOqVcCHuSlM/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/EOqVcCHuSlM/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="EOqVcCHuSlM">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="_uCGg7qBEUE">
+          <img class="yt-poster" src="https://img.youtube.com/vi/_uCGg7qBEUE/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/_uCGg7qBEUE/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="_uCGg7qBEUE">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="QkE-CqbDPWQ">
+          <img class="yt-poster" src="https://img.youtube.com/vi/QkE-CqbDPWQ/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/QkE-CqbDPWQ/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="QkE-CqbDPWQ">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="rzjjy3dHSNk">
+          <img class="yt-poster" src="https://img.youtube.com/vi/rzjjy3dHSNk/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/rzjjy3dHSNk/hqdefault.jpg'" alt="Vlog">
+          <button class="yt-play-overlay" aria-label="播放影片"><span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span></button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="rzjjy3dHSNk">載入中…</div>
+          <div class="yt-sub">@tanyadreamlife</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="note-card" style="margin-top:1.8rem">
+    <p>所有內容版權屬原著作人所有。若原始影片下架，縮圖與連結亦將失效。</p>
+  </div>
+
+</div>
+
+<footer><div class="footer-inner">
+  <div>趙喚好運 &nbsp;·&nbsp; 趙妮綺非官方記錄站</div>
+  <div>內容僅供個人紀錄用，版權屬原著作人所有。</div>
+</div></footer>
+<button class="back-top-fixed" id="backTop" title="回到頂端">↑</button>
+
+<script>
+  // Theme
+  const btn = document.getElementById("themeToggle");
+  if (localStorage.getItem("theme") === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  btn.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+    localStorage.setItem("theme", isDark ? "light" : "dark");
+  });
+
+  // Back to top
+  const btt = document.getElementById("backTop");
+  window.addEventListener("scroll", () => btt.classList.toggle("visible", window.scrollY > 300));
+  btt.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+  // 左右箭頭
+  const vlogScroll = document.getElementById("vlogScroll");
+  document.getElementById("vlogPrev").addEventListener("click", () => {
+    vlogScroll.scrollBy({ left: -320, behavior: "smooth" });
+  });
+  document.getElementById("vlogNext").addEventListener("click", () => {
+    vlogScroll.scrollBy({ left: 320, behavior: "smooth" });
+  });
+
+  // Click-to-play
+  document.querySelectorAll(".yt-embed-wrap[data-videoid]").forEach(wrap => {
+    wrap.addEventListener("click", () => {
+      const id = wrap.dataset.videoid;
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      wrap.innerHTML = "";
+      wrap.appendChild(iframe);
+    });
+  });
+
+  // 自動抓取標題
+  document.querySelectorAll(".yt-title[data-fetch]").forEach(async el => {
+    const id = el.dataset.fetch;
+    try {
+      const res = await fetch(`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${id}`);
+      const data = await res.json();
+      if (data.title) el.textContent = data.title;
+    } catch(e) {
+      el.textContent = "Vlog";
+    }
+  });
+</script>
+</body>
+</html>
