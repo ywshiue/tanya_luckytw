@@ -42,14 +42,15 @@
   <div class="yt-grid">
 
     <div class="yt-card">
-      <div class="yt-embed-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/uwdsk8jaPF4"
-          title="2026聯邦台WAY大賞 說台語才夠味"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+      <div class="yt-embed-wrap" data-videoid="uwdsk8jaPF4">
+        <img
+          class="yt-poster"
+          src="https://img.youtube.com/vi/uwdsk8jaPF4/maxresdefault.jpg"
+          onerror="this.src='https://img.youtube.com/vi/uwdsk8jaPF4/hqdefault.jpg'"
+          alt="2026聯邦台WAY大賞 說台語才夠味">
+        <button class="yt-play-overlay" aria-label="播放影片">
+          <span class="yt-play-icon">▶</span>
+        </button>
       </div>
       <div class="yt-info">
         <div class="yt-badge-row">
@@ -83,5 +84,17 @@
   const btt=document.getElementById("backTop");
   window.addEventListener("scroll",()=>btt.classList.toggle("visible",window.scrollY>300));
   btt.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  // Click-to-play
+  document.querySelectorAll(".yt-embed-wrap[data-videoid]").forEach(wrap => {
+    wrap.addEventListener("click", () => {
+      const id = wrap.dataset.videoid;
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      wrap.innerHTML = "";
+      wrap.appendChild(iframe);
+    });
+  });
 </script>
 </body></html>

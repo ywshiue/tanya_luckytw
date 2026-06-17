@@ -45,14 +45,15 @@
   <div class="yt-grid">
 
     <div class="yt-card">
-      <div class="yt-embed-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/QkE-CqbDPWQ"
-          title="Tanya's Vlog"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+      <div class="yt-embed-wrap" data-videoid="QkE-CqbDPWQ">
+        <img
+          class="yt-poster"
+          src="https://img.youtube.com/vi/QkE-CqbDPWQ/maxresdefault.jpg"
+          onerror="this.src='https://img.youtube.com/vi/QkE-CqbDPWQ/hqdefault.jpg'"
+          alt="Tanya's Vlog">
+        <button class="yt-play-overlay" aria-label="播放影片">
+          <span class="yt-play-icon">▶</span>
+        </button>
       </div>
       <div class="yt-info">
         <div class="yt-badge-row"><span class="badge badge-sub">Vlog</span></div>
@@ -61,7 +62,7 @@
       </div>
     </div>
 
-    <!-- 新增 Vlog 時，複製上方區塊，把 embed URL 裡的影片 ID 換掉即可 -->
+    <!-- 新增 Vlog 時，複製上方區塊，把 data-videoid 和 src 裡的影片 ID 換掉即可 -->
 
   </div>
 
@@ -86,5 +87,17 @@
   const btt=document.getElementById("backTop");
   window.addEventListener("scroll",()=>btt.classList.toggle("visible",window.scrollY>300));
   btt.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  // Click-to-play
+  document.querySelectorAll(".yt-embed-wrap[data-videoid]").forEach(wrap => {
+    wrap.addEventListener("click", () => {
+      const id = wrap.dataset.videoid;
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      wrap.innerHTML = "";
+      wrap.appendChild(iframe);
+    });
+  });
 </script>
 </body></html>
