@@ -157,7 +157,7 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); }
 /* ── Page hero (sub-pages) ── */
 .page-hero {
   background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-end) 100%);
-  padding: 48px 1.6rem 52px; text-align: center;
+  padding: 28px 1.6rem 32px; text-align: center;
   position: relative; overflow: hidden;
 }
 .page-hero::before {
