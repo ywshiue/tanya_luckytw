@@ -44,12 +44,16 @@
 
   <div class="yt-grid">
 
-    <!-- 每部 Vlog 影片：把 VIDEO_ID 換成實際 YouTube ID -->
     <div class="yt-card">
-      <a href="https://www.youtube.com/watch?v=QkE-CqbDPWQ" target="_blank" class="yt-thumb-wrap">
-        <img class="yt-thumb" src="https://img.youtube.com/vi/QkE-CqbDPWQ/mqdefault.jpg" alt="Vlog" loading="lazy">
-        <div class="yt-play-btn"></div>
-      </a>
+      <div class="yt-embed-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/QkE-CqbDPWQ"
+          title="Tanya's Vlog"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
       <div class="yt-info">
         <div class="yt-badge-row"><span class="badge badge-sub">Vlog</span></div>
         <div class="yt-title">Tanya's Vlog</div>
@@ -57,7 +61,7 @@
       </div>
     </div>
 
-    <!-- 可以繼續往下複製這個區塊新增更多影片 -->
+    <!-- 新增 Vlog 時，複製上方區塊，把 embed URL 裡的影片 ID 換掉即可 -->
 
   </div>
 
