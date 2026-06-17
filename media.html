@@ -62,10 +62,15 @@
       pointer-events: none;
     }
 
+    /* Shorts 直式卡片 9:16 */
+    .yt-card-short { flex: 0 0 180px; } /* 比橫式窄 */
+    .yt-embed-short { aspect-ratio: 9 / 16; }
+
     @media(max-width:600px){
       .yt-scroll-wrap { margin: 0 -1rem; }
       .yt-scroll { padding: 0.4rem 1rem 1.2rem; }
       .yt-scroll .yt-card { flex: 0 0 260px; }
+      .yt-card-short { flex: 0 0 150px; }
     }
   </style>
 </head>
@@ -219,6 +224,51 @@
     </div>
   </div>
 
+  <div style="height:2rem"></div>
+
+  <!-- 訪談 -->
+  <div class="section-header">
+    <div class="section-title">訪談 <span class="count-tag">2 支</span></div>
+  </div>
+  <div class="scroll-arrows">
+    <button class="scroll-arrow" id="interviewPrev">&#8592;</button>
+    <button class="scroll-arrow" id="interviewNext">&#8594;</button>
+  </div>
+
+  <div class="yt-scroll-wrap">
+    <div class="yt-scroll" id="interviewScroll">
+
+      <!-- 一般橫向影片 16:9 -->
+      <div class="yt-card">
+        <div class="yt-embed-wrap" data-videoid="3rHJnhgtJO8" data-url="https://www.youtube.com/watch?v=3rHJnhgtJO8">
+          <img class="yt-poster" src="https://img.youtube.com/vi/3rHJnhgtJO8/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/3rHJnhgtJO8/hqdefault.jpg'" alt="訪談">
+          <button class="yt-play-overlay" aria-label="前往 YouTube">
+            <span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span>
+          </button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="3rHJnhgtJO8">載入中…</div>
+          <div class="yt-sub">訪談</div>
+        </div>
+      </div>
+
+      <!-- Shorts 直式影片 9:16 -->
+      <div class="yt-card yt-card-short">
+        <div class="yt-embed-wrap yt-embed-short" data-videoid="CzrJMj32Y6M" data-url="https://www.youtube.com/shorts/CzrJMj32Y6M">
+          <img class="yt-poster" src="https://img.youtube.com/vi/CzrJMj32Y6M/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/CzrJMj32Y6M/hqdefault.jpg'" alt="訪談 Short">
+          <button class="yt-play-overlay" aria-label="前往 YouTube">
+            <span class="yt-play-icon"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></span>
+          </button>
+        </div>
+        <div class="yt-info">
+          <div class="yt-title" data-fetch="CzrJMj32Y6M">載入中…</div>
+          <div class="yt-sub">訪談 · Shorts</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="note-card" style="margin-top:1.8rem">
     <p>所有內容版權屬原著作人所有。若原始影片下架，縮圖與連結亦將失效。</p>
   </div>
@@ -246,7 +296,7 @@
   window.addEventListener("scroll", () => btt.classList.toggle("visible", window.scrollY > 300));
   btt.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  // 左右箭頭
+  // 左右箭頭 — Vlog
   const vlogScroll = document.getElementById("vlogScroll");
   document.getElementById("vlogPrev").addEventListener("click", () => {
     vlogScroll.scrollBy({ left: -320, behavior: "smooth" });
@@ -255,11 +305,21 @@
     vlogScroll.scrollBy({ left: 320, behavior: "smooth" });
   });
 
-  // Click → 開啟 YouTube
+  // 左右箭頭 — 訪談
+  const interviewScroll = document.getElementById("interviewScroll");
+  document.getElementById("interviewPrev").addEventListener("click", () => {
+    interviewScroll.scrollBy({ left: -320, behavior: "smooth" });
+  });
+  document.getElementById("interviewNext").addEventListener("click", () => {
+    interviewScroll.scrollBy({ left: 320, behavior: "smooth" });
+  });
+
+  // Click → 開啟 YouTube（支援 data-url 自訂連結，如 Shorts）
   document.querySelectorAll(".yt-embed-wrap[data-videoid]").forEach(wrap => {
     wrap.style.cursor = "pointer";
     wrap.addEventListener("click", () => {
-      window.open(`https://www.youtube.com/watch?v=${wrap.dataset.videoid}`, "_blank");
+      const url = wrap.dataset.url || `https://www.youtube.com/watch?v=${wrap.dataset.videoid}`;
+      window.open(url, "_blank");
     });
   });
 
